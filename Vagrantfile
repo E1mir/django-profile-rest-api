@@ -12,10 +12,14 @@ Vagrant.configure("2") do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
+  
+  # Initialize in WHICH server it will be deployed in production!
   config.vm.box = "ubuntu/xenial64"
 
+  # Network configuration: From Guest port 8080 go to Host 8080
   config.vm.network "forwarded_port", host_ip: "127.0.0.1", guest: 8080, host: 8080
-
+  
+  # Provisioning script runs on the server first time you start it
   config.vm.provision "shell", inline: <<-SHELL
     # Update and upgrade the server packages.
     sudo apt-get update
