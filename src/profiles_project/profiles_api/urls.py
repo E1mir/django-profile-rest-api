@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from profiles_api import views
+from . import views
 
 app_name = 'profiles_api'
 
